@@ -1,7 +1,8 @@
-# Define an empty list to store tasks
+# Empty list of tasks
 tasks = []
-# Function to display to-do list
-def display_tasks():
+
+# display tasks
+def Dis_task():
     if not tasks:
         print("Your to-do list is empty.")
     else:
@@ -10,52 +11,55 @@ def display_tasks():
             status = "Done" if task["completed"] else "Not Done"
             print(f"{i}.{task['task']}({status})")
 
-# Function to add a task to the to-do list
-def add_task(task_name):
-    task = {"task": task_name,"completed":False}
+# Add tasks in to-do list
+def Add_task(task_details):
+    task = {"task": task_details,"completed":False}
     tasks.append(task)
-    print(f"Task '{task_name}' added to your to-do list.")
+    print(f"Task '{task_details}' added to your to-do list.")
 
-# Function to mark a task as completed
-def mark_Completed(task_number):
-    if 1<= task_number <= len(tasks):
-        tasks[task_number - 1]["completed"] = True
-        print(f"Task {task_number} marked as completed.")
-    else:
-        print("Invalid task number. Please enter a valid task number.")
+# Mark as completed task
+def mark_complete(task_num):
+    try:
+        tasks[task_num - 1]["completed"] = True
+        print(f"Task {task_num} is mark as completed.")
+    except IndexError:
+        print("Invalid task number. Please try a valid number.")
 
-# Function to temove task from to-do list
-def remove_task(task_number):
-    if 1 <= task_number <= len(tasks):
-        removed_task = tasks.pop(task_number - 1)
-        print(f"Task '{removed_task['task']} removed from your to-do list.")
-    else:
-        print("Invalid task number. Please enter a valid task number.")
+# Remove task
+def Remove_task(task_num):
+    try:
+        Remove_task = tasks.pop(task_num - 1)
+        print(f"Task '{Remove_task['task']} removed from your to-do list.")
+    except IndexError:
+        print("Invalid task number. Please try a valid number.")
 
 # Main program
 while True:
     print("\nOptions:")
-    print("1. Display to-do list")
-    print("2. Add a task")
-    print("3. Mark a task as completed")
-    print("4. Remove a task")
-    print("5. Quit")
-    choice = input("Enter your choice: ")
+    print("1: Display To-Do List")
+    print("2: Add a task")
+    print("3: Mark as completed")
+    print("4: Remove task")
+    print("5: Quit")
+    choice = input("Enter your choice = ")
+    
+    if choice == "1":
+        Dis_task()
 
-    if choice == '1':
-        display_tasks()
-    elif choice =='2':
-        task_name = input("Enter the task: ")
-        add_task(task_name)
-    elif choice == '3':
-        display_tasks()
-        task_number = int(input("Enter the task number to mark as completed: "))
-        mark_Completed(task_number)
-    elif choice == '4':
-        display_tasks()
-        task_number = int(input("Enter the task number to remove: "))
-        remove_task(task_number)
-    elif choice == '5':
+    elif choice == "2":
+        task_details = input("Task: ")
+        Add_task(task_details)
+
+    elif choice == "3":
+        task_num = int(input("Enter task number = "))
+        mark_complete(task_num)
+
+    elif choice == "4":
+        task_num = int(input("Enter task number = "))
+        Remove_task(task_num)
+
+    elif choice == "5":
         break
+
     else:
-        print("Invalid choice. Please enter a valid option.")
+        print("Invalid choice. Please enter a valid choice.")
