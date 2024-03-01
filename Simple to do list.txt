@@ -1,0 +1,22 @@
+This code is a simple to-do list program implemented in Python. Here's a breakdown of how it works:
+
+1. **Empty list of tasks**: `tasks` is initialized as an empty list. This list will hold dictionaries where each dictionary represents a task.
+
+2. **Display tasks**: The `Dis_task()` function is defined to display the tasks in the to-do list. It iterates through the `tasks` list and prints each task along with its status (done or not done).
+
+3. **Add task**: The `Add_task(task_details)` function is defined to add a new task to the to-do list. It takes a task description as input, creates a dictionary with the task details and a status of `False` indicating it's not completed, and then appends this dictionary to the `tasks` list.
+
+4. **Mark as completed**: The `mark_complete(task_num)` function is defined to mark a task as completed. It takes the task number as input, finds the corresponding task in the `tasks` list, and changes its `completed` status to `True`.
+
+5. **Remove task**: The `Remove_task(task_num)` function is defined to remove a task from the to-do list. It takes the task number as input, removes the corresponding task from the `tasks` list using `pop()`, and prints a confirmation message.
+
+6. **Main program loop**: The main program runs in an infinite loop (`while True`) displaying a menu of options for the user:
+   - Display To-Do List
+   - Add a task
+   - Mark as completed
+   - Remove task
+   - Quit
+
+   The user can enter a choice, and based on the choice, the respective function is called. If the user chooses to quit (`5`), the loop breaks, and the program ends.
+
+This code provides a basic interactive interface for managing a to-do list.
